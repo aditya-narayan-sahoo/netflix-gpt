@@ -5,10 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
+  const handleGPTSearchClick = () => {
+    //toggle gpt search
+    dispatch(toggleGptSearchView());
+  };
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -50,6 +56,12 @@ const Header = () => {
       <img className="w-48" src={LOGO} alt="netlfix-logo" />
       {user && (
         <div className="flex py-6">
+          <button
+            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+            onClick={handleGPTSearchClick}
+          >
+            GPT Search
+          </button>
           <img className="w-12 h-12" src={user?.photoURL} alt="user-icon" />
           <button
             className="ml-2 font-semibold text-white"
