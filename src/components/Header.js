@@ -53,23 +53,31 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute px-6 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
-      <img className="w-48" src={LOGO} alt="netlfix-logo" />
+    <div className="absolute px-6 py-2 bg-gradient-to-b from-black z-10 w-screen flex flex-col md:flex-row items-center md:items-start md:justify-between">
+      <div className="flex justify-center w-full md:w-auto">
+        <img className="w-48" src={LOGO} alt="netlfix-logo" />
+      </div>
       {user && (
-        <div className="flex py-6">
-          <button
-            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
-            onClick={handleGPTSearchClick}
-          >
-            {showGptSearch ? "HomePage" : "GPT Search"}
-          </button>
-          <img className="w-12 h-12" src={user?.photoURL} alt="user-icon" />
-          <button
-            className="ml-2 font-semibold text-white"
-            onClick={handleSignOut}
-          >
-            (Sign Out)
-          </button>
+        <div className="flex flex-col md:flex-row items-center md:items-start py-6 w-full md:w-auto">
+          <div className="flex items-center mb-2 md:mb-0">
+            <button
+              className="py-2 px-4 mx-2 bg-purple-800 text-white rounded-lg"
+              onClick={handleGPTSearchClick}
+            >
+              {showGptSearch ? "HomePage" : "GPT Search"}
+            </button>
+            <img
+              className="w-12 h-12 mx-2 hidden md:block"
+              src={user?.photoURL}
+              alt="user-icon"
+            />
+            <button
+              className="font-semibold text-white"
+              onClick={handleSignOut}
+            >
+              (Sign Out)
+            </button>
+          </div>
         </div>
       )}
     </div>
