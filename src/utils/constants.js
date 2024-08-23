@@ -8,10 +8,11 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMzk5N2E2ZGQ1Y2NkODI1OTg2NWZlNzMwMmQwZDllYyIsIm5iZiI6MTcyNDM4OTkxNi4wNzkwNjQsInN1YiI6IjY2YzNhMGYyMWU0NjFjNzZkYjFhYWJiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yN5IjDZISqs9kpmkg_YEGztHG8cj62bmxQWz4VW7RBo",
+    Authorization: `Bearer ${process.env.REACT_APP_TMDB_KEY}`,
   },
 };
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
 export const GEMINI_KEY = `${process.env.REACT_APP_GEMINI_KEY}`;
+
+export const FIREBASE_KEY = `${process.env.REACT_APP_FIREBASE_KEY}`;

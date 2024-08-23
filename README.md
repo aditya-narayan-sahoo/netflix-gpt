@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Netflix GPT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Netflix GPT is an AI-driven platform designed to enhance your entertainment experience by providing personalized content recommendations. Leveraging the GEMINI 1.5 - FLASH model, this project aims to transform how users interact with streaming content.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Environment Variables](#environment-variables)
+- [Getting Started](#getting-started)
+- [Contact](#contact)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **GPT-Search**: Utilize the Gemini model for intelligent search capabilities.
+- **Firebase Authentication**: Secure user authentication to manage profiles and enhance user experience.
+- **TMDB API**: Access a vast database of movie information and recommendations.
+- **Memoisation**: Improve performance by caching API responses.
+- **Redux Toolkit**: Efficient state management for a seamless user experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+To run this project, ensure you have the following installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js**: Install Node.js on your computer [Here](https://nodejs.org/en).
+- **Firebase**: Set up Firebase for authentication and database management [Here](https://firebase.google.com/).
+- **OpenAI API Key**: Obtain your Gemini API key [Here](https://aistudio.google.com/app/apikey).
+- **TMDB API Key**: Get your TMDB API key [Here](https://developer.themoviedb.org/reference/intro/getting-started).
 
-### `npm run build`
+## Environment Variables
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run this project, you will need to add the following environment variables to your `.env` file:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+REACT_APP_GEMINI_KEY=your_gemini_key_here
+REACT_APP_TMDB_KEY=your_tmdb_key_here
+REACT_APP_FIREBASE_KEY=your_firebase_key_here
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+To clone this repository and run it locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone https://github.com/aditya-narayan-sahoo/netflix-gpt.git
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Navigate to the project directory:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   cd netflix-gpt
+   ```
 
-## Learn More
+3. Install the dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Start the development server:
 
-### Code Splitting
+   ```bash
+   npm run start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. Open your browser and visit `http://localhost:3000` to view the app.
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For any inquiries or contributions, please reach out to:
 
-### Making a Progressive Web App
+**Aditya Narayan Sahoo**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- GitHub: [Aditya Narayan Sahoo](https://github.com/aditya-narayan-sahoo)
+- Email : [adityasahoo246@gmail.com](adityasahoo246@gmail.com)
+- LinkedIn: [Aditya Narayan Sahoo](https://www.linkedin.com/in/aditya-narayan-sahoo)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Citations:
+[1] https://namastedev.com/learn/namaste-react
