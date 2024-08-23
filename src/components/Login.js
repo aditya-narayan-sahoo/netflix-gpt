@@ -95,7 +95,7 @@ const Login = () => {
         <img
           src={BACKGROUND_IMG}
           alt="background-image"
-          className="h-screen object-cover"
+          className="h-screen w-screen object-cover"
         />
       </div>
       <form

@@ -3,7 +3,7 @@ import useGptSearch from "../hooks/useGptSearch";
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
-  const { handleGptSearchClick } = useGptSearch();
+  const { handleGptSearchClick } = useGptSearch(searchText); // Pass the ref here
 
   return (
     <div className="pt-[35%] md:pt-[10%] flex justify-center">

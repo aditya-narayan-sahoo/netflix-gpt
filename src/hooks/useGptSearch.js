@@ -1,8 +1,21 @@
+import { HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import { useDispatch } from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
-import { API_OPTIONS } from "../utils/constants";
+import { API_OPTIONS, GEMINI_KEY } from "../utils/constants";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const useGptSearch = () => {
+const safetySettings = [
+  {
+    category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+];
+
+const useGptSearch = (searchText) => {
   const dispatch = useDispatch();
 
   const searchMovieTMDB = async (movie) => {
@@ -11,44 +24,48 @@ const useGptSearch = () => {
       API_OPTIONS
     );
     const json = await response.json();
-    //console.log(json.results);
     return json.results;
   };
 
+  const genAI = new GoogleGenerativeAI(GEMINI_KEY);
+
   const handleGptSearchClick = async () => {
-    /*
-      Code to fetch data from OPEN AI API, 
-      handle error of too many requests if you intend to use the API
-
-    const gptQuery =
-      "Act as a Movie Recommendation system and suggest some movies for the query : " +
-      searchText.current.value +
-      ". Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gaddar, Sholay, Don, Golmaal, Deewar";
-    const gptResults = await client.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
-    });
-    if (!gptResults.choices) {
-      // TODO: Write Error Handling
-    }
-    console.log(gptResults.choices?.[0]?.message?.content);
-    Andaz Apna Apna, Hera Pheri, Chupke Chupke, Jaane Bhi Do Yaaro, Padosan
-    const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
-    */
-
-    const gptMovies = [
-      "Andaz Apna Apna",
-      "Hera Pheri",
-      "Chupke Chupke",
-      "Jaane Bhi Do Yaaro",
-      "Padosan",
-    ];
-
-    const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
-    const tmdbResults = await Promise.all(promiseArray);
-    dispatch(
-      addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+    const model = genAI.getGenerativeModel(
+      { model: "gemini-1.5-flash" },
+      { safetySettings: safetySettings }
     );
+    const prompt =
+      "Act as a movie recommendation system and suggest some movies for the query: " +
+      searchText.current.value +
+      ". Only give me names of 5 movies, comma separated like the example result given ahead. Example result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
+
+    try {
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = await response.text();
+      const gptMovies = text.split(",");
+
+      const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
+      const tmdbResults = await Promise.all(promiseArray);
+      dispatch(
+        addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+      );
+    } catch (error) {
+      //console.error("Error in GPT Search:", error);
+      // Fallback movie recommendations
+      const gptMovies = [
+        "Andaz Apna Apna",
+        "Hera Pheri",
+        "Chupke Chupke",
+        "Jaane Bhi Do Yaaro",
+        "Padosan",
+      ];
+      const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
+      const tmdbResults = await Promise.all(promiseArray);
+      dispatch(
+        addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+      );
+    }
   };
 
   return {
