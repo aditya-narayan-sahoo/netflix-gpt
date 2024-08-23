@@ -24,7 +24,7 @@ To run this project, ensure you have the following installed:
 
 - **Node.js**: Install Node.js on your computer [Here](https://nodejs.org/en).
 - **Firebase**: Set up Firebase for authentication and database management [Here](https://firebase.google.com/).
-- **OpenAI API Key**: Obtain your Gemini API key [Here](https://aistudio.google.com/app/apikey).
+- **Gemini API Key**: Obtain your Gemini API key [Here](https://aistudio.google.com/app/apikey).
 - **TMDB API Key**: Get your TMDB API key [Here](https://developer.themoviedb.org/reference/intro/getting-started).
 
 ## Environment Variables
@@ -78,4 +78,4 @@ For any inquiries or contributions, please reach out to:
 - LinkedIn: [Aditya Narayan Sahoo](https://www.linkedin.com/in/aditya-narayan-sahoo)
 
 Citations:
-[1] https://namastedev.com/learn/namaste-react
+https://namastedev.com/learn/namaste-react
