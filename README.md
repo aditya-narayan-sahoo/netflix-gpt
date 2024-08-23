@@ -74,7 +74,7 @@ For any inquiries or contributions, please reach out to:
 **Aditya Narayan Sahoo**
 
 - GitHub: [Aditya Narayan Sahoo](https://github.com/aditya-narayan-sahoo)
-- Email : [adityasahoo246@gmail.com](adityasahoo246@gmail.com)
+- Email : [adityasahoo246@gmail.com](mailto:adityasahoo246@gmail.com)
 - LinkedIn: [Aditya Narayan Sahoo](https://www.linkedin.com/in/aditya-narayan-sahoo)
 
 Citations:
