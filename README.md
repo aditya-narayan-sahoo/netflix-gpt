@@ -9,6 +9,7 @@ Netflix GPT is an AI-driven platform designed to enhance your entertainment expe
 - [Environment Variables](#environment-variables)
 - [Getting Started](#getting-started)
 - [Contact](#contact)
+- [Config](#config)
 
 ## Features
 
@@ -77,5 +78,10 @@ For any inquiries or contributions, please reach out to:
 - Email : [adityasahoo246@gmail.com](mailto:adityasahoo246@gmail.com)
 - LinkedIn: [Aditya Narayan Sahoo](https://www.linkedin.com/in/aditya-narayan-sahoo)
 
-Citations:
+## Config 
+
+Since this app uses TMDB API, which is banned by some ISPs operating in India, you may have to enable custom dns in your connection settings for operating the app.
+I use the google DNS(8.8.8.8 or 8.8.4.4) for this 
+
+### Citations:
 https://namastedev.com/learn/namaste-react
